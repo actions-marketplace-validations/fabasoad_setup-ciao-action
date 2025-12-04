@@ -3,18 +3,47 @@
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
 ![Release](https://img.shields.io/github/v/release/fabasoad/setup-ciao-action?include_prereleases)
 ![functional-tests](https://github.com/fabasoad/setup-ciao-action/actions/workflows/functional-tests.yml/badge.svg)
-![pre-commit](https://github.com/fabasoad/setup-ciao-action/actions/workflows/pre-commit.yml/badge.svg)
+![security](https://github.com/fabasoad/setup-ciao-action/actions/workflows/security.yml/badge.svg)
+![linting](https://github.com/fabasoad/setup-ciao-action/actions/workflows/linting.yml/badge.svg)
 
 This action installs [Ciao](http://ciao-lang.org) CLI tool.
 
-Supported OS: Linux and macOS.
+## Supported OS
+
+<!-- prettier-ignore-start -->
+| OS      |                    |
+|---------|--------------------|
+| Windows | :x:                |
+| Linux   | :white_check_mark: |
+| macOS   | :white_check_mark: |
+<!-- prettier-ignore-end -->
+
+## Prerequisites
+
+None.
 
 ## Inputs
 
+```yaml
+- uses: fabasoad/setup-ciao-action@v0
+  with:
+    # (Optional) Ciao version. Defaults to the latest version.
+    version: "1.25.0-m1"
+    # (Optional) If "false" skips installation if ciao is already installed. If
+    # "true" installs ciao in any case. Defaults to "false".
+    force: "false"
+    # (Optional) GitHub token that is used to send requests to GitHub API such
+    # as getting latest release. Defaults to the token provided by GitHub Actions
+    # environment.
+    github-token: "${{ github.token }}"
+```
+
+## Outputs
+
 <!-- prettier-ignore-start -->
-| Name    | Required | Description                                                                                 | Default     | Possible values |
-|---------|----------|---------------------------------------------------------------------------------------------|-------------|-----------------|
-| version | No       | Version of `Ciao` tool that can be found [here](https://github.com/ciao-lang/ciao/releases) | `1.22.0-m7` | &lt;String&gt;  |
+| Name      | Description                       | Example |
+|-----------|-----------------------------------|---------|
+| installed | Whether ciao was installed or not | `true`  |
 <!-- prettier-ignore-end -->
 
 ## Example usage
@@ -31,8 +60,7 @@ jobs:
     name: Ciao
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main
-      - uses: fabasoad/setup-ciao-action@main
+      - uses: fabasoad/setup-ciao-action@v0
       - name: Run command
         run: ciao list
 ```
@@ -44,3 +72,7 @@ Run ciao list
 builder
 core
 ```
+
+## Contributions
+
+![Alt](https://repobeats.axiom.co/api/embed/e5b33cd7bcb7862b4e264508b6674aa43b63d643.svg "Repobeats analytics image")
