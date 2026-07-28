@@ -14,7 +14,7 @@ repos:
         args: []
         exclude: ^tests/.*$
         # https://github.com/prettier/prettier/releases
-        additional_dependencies: ["prettier@3.8.1"]
+        additional_dependencies: ["prettier@3.9.6"]
         stages: ["pre-commit"]
   # Security
   - repo: https://github.com/Yelp/detect-secrets
@@ -37,7 +37,7 @@ repos:
         stages: ["pre-push"]
   # Markdown
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.47.0
+    rev: v0.49.1
     hooks:
       - id: markdownlint-fix
   # Shell
@@ -55,7 +55,7 @@ repos:
         stages: ["pre-push"]
   # GitHub Actions
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.10
+    rev: v1.7.12
     hooks:
       - id: actionlint
         args: ["-pyflakes="]
